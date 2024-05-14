@@ -18,17 +18,22 @@ for i in range(n):
 df = pd.DataFrame({nombre_variable: datos})
 
 media = df[nombre_variable].mean()
+media_manual = sum(datos) / n
 mediana = df[nombre_variable].median()
+mediana_manual = sorted(datos)[n//2] if n % 2 != 0 else (sorted(datos)[n//2 - 1] + sorted(datos)[n//2]) / 2
 moda = df[nombre_variable].mode()[0]
+moda_manual = max(set(datos), key = datos.count)
 
 maximo = df[nombre_variable].max()
 minimo = df[nombre_variable].min()
 
 rango = round(maximo - minimo, 2)
 
-varianza = df[nombre_variable].var()
-desviacion_estandar = math.sqrt(varianza)
+varianza = round(df[nombre_variable].var(), 2)
+desviacion_estandar = round(math.sqrt(varianza), 2)
 
+print("-----------------------------------")
+print("Resultados con Métodos de Pandas")
 print("-----------------------------------")
 print("Medidas de Tendencia Central")
 print("-----------------------------------")
