@@ -20,7 +20,7 @@ df = pd.DataFrame({nombre_variable: datos})
 media = round(df[nombre_variable].mean(), 2)
 media_manual = sum(datos) / n
 mediana = df[nombre_variable].median()
-mediana_manual = sorted(datos)[n//2] if n % 2 != 0 else (sorted(datos)[n//2 - 1] + sorted(datos)[n//2]) / 2
+mediana_manual = round(sorted(datos)[n//2] if n % 2 != 0 else (sorted(datos)[n//2 - 1] + sorted(datos)[n//2]) / 2, 2)
 moda = df[nombre_variable].mode()[0]
 moda_manual = max(set(datos), key = datos.count)
 
